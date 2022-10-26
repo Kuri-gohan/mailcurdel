@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#test
+
 err_domain="^(([0-9a-zA-Z](-*[a-zA-Z0-9])*)\.)+[a-zA-Z]{2,}$"
 err_domain_search="^[0-9a-zA-Z](-*[0-9a-zA-Z]*\.*)+$"
 err_user="^([0-9a-zA-Z](_*[a-zA-Z0-9])*)$"

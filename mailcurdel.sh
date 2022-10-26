@@ -6,8 +6,13 @@ err_user="^([0-9a-zA-Z](_*[a-zA-Z0-9])*)$"
 
 chk_verbose=""
 
-db_pw_path=`cat /root/decryptcode.txt`
-db_pw=`echo U2FsdGVkX18h+m3RCUQFQXbuRM7dQEs5517nFX1OirE= | openssl enc -aes256 -pbkdf2 -a -k $db_pw_path -d`
+db_pw_key_path="/home/lwh0002/mailcurdel/mailcurdel.key"
+if [[ ! -f "$db_pw_key_path" ]] ; then
+        echo "db_pw_key_path did't exist"
+        exit 100
+fi
+db_pw_key=`cat $db_pw_key_path`
+db_pw=`echo U2FsdGVkX18h+m3RCUQFQXbuRM7dQEs5517nFX1OirE= | openssl enc -aes256 -pbkdf2 -a -k $db_pw_key -d`
 
 db_database_name="mailcurdel"
 db_table_name="mailcurdellog"
